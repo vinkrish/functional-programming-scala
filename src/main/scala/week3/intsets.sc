@@ -41,3 +41,10 @@ t2 union u4
 
 u4 union t2
 
+// problematic array example - in Scala array's are not covariant
+val a: Array[NonEmpty] = Array(new NonEmpty(1,new Empty,new Empty))
+val b: Array[IntSet] = a
+b(0) = new Empty
+val s: NonEmpty = a(0)
+
+

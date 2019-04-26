@@ -13,6 +13,42 @@ val m = Matrix(
 println(m)
 println(m.getClass)
 
+// Avoid mutable local Variables
+
+def fib1(n: Int): Int = {
+  var a = 0
+  var b = 1
+  var i = 0
+  while (i < n) {
+    val prev_a = a
+    a = b
+    b = prev_a + b
+    i = i + 1
+  }
+  a
+}
+
+def fib2(n: Int): Int = {
+  def fibIter(i: Int, a: Int, b: Int): Int =
+    if (i == n) a else fibIter(i+1, b, a+b)
+  fibIter(0, 0, 1)
+}
+
+/*
+// Line Length and Whitespace
+
+if (p(this.head))
+  this.tail.filter0(p, accu.incl(this.head))
+else
+  this.tail.filter0(p, accu)
+
+val newAccu =
+  if (p(this.head)) accu.incl(this.head)
+  else accu
+this.tail.filter0(p, newAccu)
+
+*/
+
 // Set
 object anonymousSet {
   def contains(s: Int => Boolean, elem: Int): Boolean = s(elem)
@@ -26,6 +62,7 @@ anonymousSet
 
 
 def contain(s: Int => Boolean, elem: Int): Boolean = s(elem)
+
 def anonymousSet(elem: Int): Int => Boolean = {
   def inner(x: Int): Boolean = {
     x == elem

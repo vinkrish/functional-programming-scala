@@ -6,7 +6,11 @@ val numArray = Array(1,2,3,4,5,1,2,3,4,5)
 numArray(3)
 
 // Lists
-val numList = List(1,2,3,4,5,1,2,3,4,5)
+// operator ending in ";" associate to the right
+val numList = List(1,2,3,4) // 1 :: (2 :: (3 :: (4 :: Nil))) equal to 1 :: 2 :: 3 :: 4
+val fruit: List[String] = List("apples", "oranges", "pears") // "apples" :: ("oranges" :: ("pears" :: Nil))
+val diag3: List[List[Int]] = List(List(1,0,0), List(0,1,0), List(0,0,1))
+val empty: List[Nothing] = List() // Nil
 
 numList(3)
 
